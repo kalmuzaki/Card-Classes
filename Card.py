@@ -8,6 +8,24 @@ class Card:
     def __str__(self):
         return "{0} of {1}".format(self.value.name,self.suit.name)
 
+    def __gt__(self, other):
+        if self.suit.value >= other.suit.value:
+            if self.value.value > other.value.value:
+                return True
+        return False
+
+    def __lt__(self, other):
+        if self.suit.value <= other.suit.value:
+            if self.value.value < other.value.value:
+                return True
+        return False
+
+    def __eq__(self, other):
+        if self.suit.value == other.suit.value:
+            if self.value.value == other.value.value:
+                return True
+        return False
+
 class Suit(Enum):
     CLUBS = 0
     DIAMONDS = 1
